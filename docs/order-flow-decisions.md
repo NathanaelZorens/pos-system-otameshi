@@ -104,4 +104,4 @@ Admin list: `/admin/cancelled`.
 5. **Cancelled / force-cancel ops list** — **done** (`/admin/cancelled`; free-text `cancel_reason` on Quit / Force cancel)  
 6. Optional later: staff re-issue guest claim, void line, join open order, takeout, UI redesign.  
 7. **Menu categories CRUD** — **done** (v2.6)  
-8. Promotions / timed discounts — **done** (v5 — see [phase-5-discounts.md](./phase-5-discounts.md))
+8. Promotions / timed discounts — **done** (v5 — [summary](./phase-5-summary.md) · [brief](./phase-5-discounts.md))

@@ -1,9 +1,10 @@
 # Phase 5 — Discount rules
 
-**Status:** Built  
+**Status:** Built (smoke-tested)  
 **Product version target:** 5.0  
 **Builds on:** [v4.x members](./phase-4-members.md)  
-**Date:** 2026-10-08
+**Progress summary:** [phase-5-summary.md](./phase-5-summary.md)  
+**Date:** 2026-10-08 → 2026-10-09
 
 ---
 
