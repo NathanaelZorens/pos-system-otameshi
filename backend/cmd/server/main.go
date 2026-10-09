@@ -135,6 +135,12 @@ func main() {
 		r.With(authmw.RequireRole(auth.RoleAdmin)).Get("/reports/summary", api.ReportSummary)
 		r.With(authmw.RequireRole(auth.RoleAdmin)).Get("/reports/items", api.ReportItems)
 		r.With(authmw.RequireRole(auth.RoleAdmin)).Get("/reports/cancelled", api.ListCancelledOrders)
+
+		r.With(authmw.RequireRole(auth.RoleAdmin)).Get("/discount-rules", api.ListDiscountRules)
+		r.With(authmw.RequireRole(auth.RoleAdmin)).Post("/discount-rules", api.CreateDiscountRule)
+		r.With(authmw.RequireRole(auth.RoleAdmin)).Post("/discount-rules/preview-featured", api.PreviewFeaturedDiscount)
+		r.With(authmw.RequireRole(auth.RoleAdmin)).Put("/discount-rules/{id}", api.UpdateDiscountRule)
+		r.With(authmw.RequireRole(auth.RoleAdmin)).Delete("/discount-rules/{id}", api.DeleteDiscountRule)
 	})
 
 	log.Printf("API listening on %s", addr)

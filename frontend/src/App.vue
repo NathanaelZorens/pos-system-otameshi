@@ -6,6 +6,7 @@
         <RouterLink to="/tables">Tables</RouterLink>
         <RouterLink to="/takeout-queue">Takeout</RouterLink>
         <RouterLink v-if="user.role === 'admin'" to="/admin/menu">Menu</RouterLink>
+        <RouterLink v-if="user.role === 'admin'" to="/admin/discounts">Discounts</RouterLink>
         <RouterLink v-if="user.role === 'admin'" to="/admin/reports">Reports</RouterLink>
         <RouterLink v-if="user.role === 'admin'" to="/admin/cancelled">Cancelled</RouterLink>
       </nav>

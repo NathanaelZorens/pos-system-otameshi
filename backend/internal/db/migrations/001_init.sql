@@ -67,9 +67,32 @@ CREATE TABLE IF NOT EXISTS order_items (
     menu_item_id TEXT NOT NULL REFERENCES menu_items(id),
     name_snapshot TEXT NOT NULL,
     unit_price_cents INTEGER NOT NULL,
+    list_unit_price_cents INTEGER,
+    discount_rule_id TEXT,
+    discount_label TEXT,
     quantity INTEGER NOT NULL CHECK (quantity > 0),
     status TEXT NOT NULL DEFAULT 'pending' CHECK (status IN ('pending', 'confirmed'))
 );
+
+CREATE TABLE IF NOT EXISTS discount_rules (
+    id TEXT PRIMARY KEY,
+    name TEXT NOT NULL,
+    target_type TEXT NOT NULL CHECK (target_type IN ('item', 'category')),
+    target_id TEXT NOT NULL,
+    discount_type TEXT NOT NULL CHECK (discount_type IN ('fixed', 'percent')),
+    amount INTEGER NOT NULL CHECK (amount > 0),
+    start_time TEXT,
+    end_time TEXT,
+    weekdays TEXT,
+    starts_on TEXT,
+    ends_on TEXT,
+    is_active INTEGER NOT NULL DEFAULT 1,
+    is_featured_price INTEGER NOT NULL DEFAULT 0,
+    created_at TEXT NOT NULL DEFAULT (datetime('now')),
+    updated_at TEXT NOT NULL DEFAULT (datetime('now'))
+);
+
+CREATE INDEX IF NOT EXISTS idx_discount_rules_target ON discount_rules(target_type, target_id);
 
 CREATE TABLE IF NOT EXISTS payments (
     id TEXT PRIMARY KEY,

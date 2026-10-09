@@ -10,6 +10,7 @@ import (
 	"github.com/go-chi/chi/v5"
 	"github.com/google/uuid"
 	"github.com/pos-system-otameshi/backend/internal/auth"
+	"github.com/pos-system-otameshi/backend/internal/discount"
 	"github.com/pos-system-otameshi/backend/internal/httpjson"
 	"github.com/pos-system-otameshi/backend/internal/payment"
 	"golang.org/x/crypto/bcrypt"
@@ -180,15 +181,18 @@ func (a *API) ListMenu(w http.ResponseWriter, r *http.Request) {
 	defer rows.Close()
 
 	type item struct {
-		ID         string  `json:"id"`
-		Name       string  `json:"name"`
-		PriceCents int     `json:"price_cents"`
-		CategoryID *string `json:"category_id"`
-		Category   *string `json:"category"`
-		IsSoldOut  bool    `json:"is_sold_out"`
-		IsActive   bool    `json:"is_active"`
+		ID                 string  `json:"id"`
+		Name               string  `json:"name"`
+		PriceCents         int     `json:"price_cents"`
+		UnitPriceCents     int     `json:"unit_price_cents"`
+		DiscountLabel      *string `json:"discount_label,omitempty"`
+		CategoryID         *string `json:"category_id"`
+		Category           *string `json:"category"`
+		IsSoldOut          bool    `json:"is_sold_out"`
+		IsActive           bool    `json:"is_active"`
 	}
 	out := []item{}
+	now := time.Now()
 	for rows.Next() {
 		var it item
 		var catID, cat sql.NullString
@@ -205,6 +209,12 @@ func (a *API) ListMenu(w http.ResponseWriter, r *http.Request) {
 		}
 		it.IsSoldOut = sold == 1
 		it.IsActive = active == 1
+		it.UnitPriceCents = it.PriceCents
+		applied, err := discount.ResolveUnitPrice(a.DB, it.ID, it.PriceCents, it.CategoryID, now)
+		if err == nil {
+			it.UnitPriceCents = applied.UnitPriceCents
+			it.DiscountLabel = applied.Label
+		}
 		out = append(out, it)
 	}
 	httpjson.Write(w, http.StatusOK, out)
@@ -406,24 +416,16 @@ func (a *API) CreateOrder(w http.ResponseWriter, r *http.Request) {
 
 	for _, menuItemID := range orderKeys {
 		qty := qtyByItem[menuItemID]
-		var name string
-		var price int
-		var soldOut, active int
-		if err := tx.QueryRow(
-			`SELECT name, price_cents, is_sold_out, is_active FROM menu_items WHERE id = ?`,
-			menuItemID,
-		).Scan(&name, &price, &soldOut, &active); err != nil {
-			httpjson.Error(w, http.StatusNotFound, "menu item not found")
-			return
-		}
-		if active != 1 || soldOut == 1 {
-			httpjson.Error(w, http.StatusConflict, "item unavailable: "+name)
-			return
-		}
-		if _, err := tx.Exec(
-			`INSERT INTO order_items (id, order_id, menu_item_id, name_snapshot, unit_price_cents, quantity, status) VALUES (?, ?, ?, ?, ?, ?, 'pending')`,
-			uuid.NewString(), orderID, menuItemID, name, price, qty,
-		); err != nil {
+		if err := insertPendingOrderItem(tx, orderID, menuItemID, qty); err != nil {
+			var unavail *itemUnavailableError
+			if errors.As(err, &unavail) {
+				httpjson.Error(w, http.StatusConflict, unavail.Error())
+				return
+			}
+			if errors.Is(err, errMenuItemNotFound) {
+				httpjson.Error(w, http.StatusNotFound, "menu item not found")
+				return
+			}
 			httpjson.Error(w, http.StatusInternalServerError, "db error")
 			return
 		}
@@ -536,7 +538,10 @@ func (a *API) writeOrderOnceClaim(w http.ResponseWriter, orderID, guestClaim str
 	}
 
 	rows, err := a.DB.Query(`
-		SELECT id, menu_item_id, name_snapshot, unit_price_cents, quantity, COALESCE(status, 'pending')
+		SELECT id, menu_item_id, name_snapshot, unit_price_cents,
+		       COALESCE(list_unit_price_cents, unit_price_cents),
+		       discount_rule_id, discount_label,
+		       quantity, COALESCE(status, 'pending')
 		FROM order_items WHERE order_id = ? ORDER BY status DESC, name_snapshot
 	`, orderID)
 	if err != nil {
@@ -546,9 +551,20 @@ func (a *API) writeOrderOnceClaim(w http.ResponseWriter, orderID, guestClaim str
 	defer rows.Close()
 	for rows.Next() {
 		var it orderItemJSON
-		if err := rows.Scan(&it.ID, &it.MenuItemID, &it.NameSnapshot, &it.UnitPriceCents, &it.Quantity, &it.Status); err != nil {
+		var ruleID, label sql.NullString
+		if err := rows.Scan(
+			&it.ID, &it.MenuItemID, &it.NameSnapshot, &it.UnitPriceCents,
+			&it.ListUnitPriceCents, &ruleID, &label,
+			&it.Quantity, &it.Status,
+		); err != nil {
 			httpjson.Error(w, http.StatusInternalServerError, "scan error")
 			return
+		}
+		if ruleID.Valid && ruleID.String != "" {
+			it.DiscountRuleID = &ruleID.String
+		}
+		if label.Valid && label.String != "" {
+			it.DiscountLabel = &label.String
 		}
 		it.LineTotalCents = it.UnitPriceCents * it.Quantity
 		o.Items = append(o.Items, it)
@@ -574,13 +590,16 @@ func (a *API) writeOrderOnceClaim(w http.ResponseWriter, orderID, guestClaim str
 }
 
 type orderItemJSON struct {
-	ID             string `json:"id"`
-	MenuItemID     string `json:"menu_item_id"`
-	NameSnapshot   string `json:"name_snapshot"`
-	UnitPriceCents int    `json:"unit_price_cents"`
-	Quantity       int    `json:"quantity"`
-	LineTotalCents int    `json:"line_total_cents"`
-	Status         string `json:"status"` // pending | confirmed
+	ID                 string  `json:"id"`
+	MenuItemID         string  `json:"menu_item_id"`
+	NameSnapshot       string  `json:"name_snapshot"`
+	UnitPriceCents     int     `json:"unit_price_cents"`
+	ListUnitPriceCents int     `json:"list_unit_price_cents"`
+	DiscountRuleID     *string `json:"discount_rule_id,omitempty"`
+	DiscountLabel      *string `json:"discount_label,omitempty"`
+	Quantity           int     `json:"quantity"`
+	LineTotalCents     int     `json:"line_total_cents"`
+	Status             string  `json:"status"` // pending | confirmed
 }
 
 type paymentJSON struct {
@@ -625,21 +644,6 @@ func (a *API) AddOrderItem(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	var name string
-	var price int
-	var soldOut, active int
-	if err := tx.QueryRow(
-		`SELECT name, price_cents, is_sold_out, is_active FROM menu_items WHERE id = ?`,
-		req.MenuItemID,
-	).Scan(&name, &price, &soldOut, &active); err != nil {
-		httpjson.Error(w, http.StatusNotFound, "menu item not found")
-		return
-	}
-	if active != 1 || soldOut == 1 {
-		httpjson.Error(w, http.StatusConflict, "item unavailable")
-		return
-	}
-
 	var existingID string
 	var qty int
 	// Only merge into an existing pending line — never bump a confirmed line.
@@ -654,10 +658,16 @@ func (a *API) AddOrderItem(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 	} else if errors.Is(err, sql.ErrNoRows) {
-		if _, err := tx.Exec(
-			`INSERT INTO order_items (id, order_id, menu_item_id, name_snapshot, unit_price_cents, quantity, status) VALUES (?, ?, ?, ?, ?, ?, 'pending')`,
-			uuid.NewString(), orderID, req.MenuItemID, name, price, req.Quantity,
-		); err != nil {
+		if err := insertPendingOrderItem(tx, orderID, req.MenuItemID, req.Quantity); err != nil {
+			var unavail *itemUnavailableError
+			if errors.As(err, &unavail) {
+				httpjson.Error(w, http.StatusConflict, "item unavailable")
+				return
+			}
+			if errors.Is(err, errMenuItemNotFound) {
+				httpjson.Error(w, http.StatusNotFound, "menu item not found")
+				return
+			}
 			httpjson.Error(w, http.StatusInternalServerError, "db error")
 			return
 		}

@@ -8296,6 +8296,2817 @@
           "height": 28
         }
       ]
+    },
+    {
+      "type": "frame",
+      "id": "mfDXR",
+      "x": 0,
+      "y": -160,
+      "name": "Discount Badge",
+      "reusable": true,
+      "fill": "$discount-pink",
+      "cornerRadius": 999,
+      "padding": [
+        3,
+        8
+      ],
+      "justifyContent": "center",
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "text",
+          "id": "p3JqwL",
+          "name": "Badge Label",
+          "fill": "#FFFFFF",
+          "content": "−10%=¥558",
+          "fontFamily": "$font-body",
+          "fontSize": 12,
+          "fontWeight": "500"
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "iKxUk",
+      "x": 3590,
+      "y": 0,
+      "name": "Staff · Order (Tablet) · Discounts",
+      "clip": true,
+      "width": 1280,
+      "height": 900,
+      "fill": "$bg",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "zYpXA",
+          "name": "Header",
+          "width": "fill_container",
+          "height": 72,
+          "fill": "$surface-raised",
+          "effect": [
+            {
+              "type": "shadow",
+              "shadowType": "outer",
+              "color": "#2C1E140A",
+              "offset": {
+                "x": 0,
+                "y": 1
+              },
+              "blur": 2
+            },
+            {
+              "type": "shadow",
+              "shadowType": "outer",
+              "color": "#2C1E140C",
+              "offset": {
+                "x": 0,
+                "y": 8
+              },
+              "blur": 20
+            }
+          ],
+          "gap": 16,
+          "padding": [
+            0,
+            28
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "a5MVL",
+              "name": "Header Left",
+              "gap": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "kARVh",
+                  "name": "Back",
+                  "fill": "$gold-soft",
+                  "cornerRadius": "$r-md",
+                  "gap": 8,
+                  "padding": [
+                    10,
+                    14
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "XJSy8",
+                      "name": "Back Label",
+                      "fill": "$gold-deep",
+                      "content": "← Tables",
+                      "fontFamily": "$font-body",
+                      "fontSize": 14,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "XEjJ2",
+                  "name": "Title Block",
+                  "layout": "vertical",
+                  "gap": 2,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "ZGq2G",
+                      "name": "Table Title",
+                      "fill": "$ink",
+                      "content": "Table 5",
+                      "fontFamily": "$font-display",
+                      "fontSize": 28,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "bao0m",
+                      "name": "Waiter Meta",
+                      "fill": "$ink-muted",
+                      "content": "Waiter · Aya · Guest order",
+                      "fontFamily": "$font-body",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "fM3Ib",
+              "name": "Status Pill",
+              "fill": "$gold-soft",
+              "cornerRadius": 999,
+              "gap": 8,
+              "padding": [
+                8,
+                14
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "ellipse",
+                  "id": "M08gn",
+                  "name": "Status Dot",
+                  "fill": "$gold",
+                  "width": 8,
+                  "height": 8
+                },
+                {
+                  "type": "text",
+                  "id": "himcX",
+                  "name": "Status Text",
+                  "fill": "$gold-deep",
+                  "content": "preparing",
+                  "fontFamily": "$font-body",
+                  "fontSize": 13,
+                  "fontWeight": "600"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "XnfRT",
+          "name": "Body",
+          "width": "fill_container",
+          "height": "fill_container",
+          "gap": 20,
+          "padding": 24,
+          "children": [
+            {
+              "type": "frame",
+              "id": "wgcL8",
+              "name": "Order Pane",
+              "width": 480,
+              "height": "fill_container",
+              "fill": "$surface-raised",
+              "cornerRadius": "$r-xl",
+              "effect": [
+                {
+                  "type": "shadow",
+                  "shadowType": "outer",
+                  "color": "#2C1E140A",
+                  "offset": {
+                    "x": 0,
+                    "y": 1
+                  },
+                  "blur": 2
+                },
+                {
+                  "type": "shadow",
+                  "shadowType": "outer",
+                  "color": "#2C1E140C",
+                  "offset": {
+                    "x": 0,
+                    "y": 10
+                  },
+                  "blur": 24
+                }
+              ],
+              "layout": "vertical",
+              "gap": 16,
+              "padding": 20,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "Nyf0i",
+                  "name": "Order Pane Head",
+                  "width": "fill_container",
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "eaMIE",
+                      "name": "Current Order",
+                      "fill": "$ink",
+                      "content": "Current order",
+                      "fontFamily": "$font-display",
+                      "fontSize": 22,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "lAHaF",
+                  "name": "Customer Field",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 6,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Qa6YP",
+                      "name": "Customer Label",
+                      "fill": "$ink-muted",
+                      "content": "Customer name (optional)",
+                      "fontFamily": "$font-body",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "wbkkr",
+                      "name": "Name Input",
+                      "width": "fill_container",
+                      "height": 42,
+                      "fill": "$bg",
+                      "cornerRadius": "$r-md",
+                      "stroke": "$line",
+                      "strokeWidth": 1,
+                      "strokeAlignment": "inner",
+                      "padding": [
+                        0,
+                        14
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "dV5eO",
+                          "name": "Name Placeholder",
+                          "fill": "$ink-muted",
+                          "content": "Alex",
+                          "fontFamily": "$font-body",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "aFNyz",
+                  "name": "Order Lines",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "layout": "vertical",
+                  "gap": 10,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "PEAi2",
+                      "name": "Line · Chicken Katsu Curry",
+                      "width": "fill_container",
+                      "fill": "$gold-soft",
+                      "cornerRadius": "$r-lg",
+                      "layout": "vertical",
+                      "gap": 8,
+                      "padding": 14,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "WQVqh",
+                          "name": "Line Top",
+                          "width": "fill_container",
+                          "gap": 12,
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "RWISP",
+                              "name": "Line Info",
+                              "width": "fill_container",
+                              "layout": "vertical",
+                              "gap": 4,
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "d06sL7",
+                                  "name": "Dish",
+                                  "fill": "$ink",
+                                  "content": "Chicken Katsu Curry",
+                                  "fontFamily": "$font-body",
+                                  "fontSize": 15,
+                                  "fontWeight": "600"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "b8dPG",
+                                  "name": "Meta",
+                                  "fill": "$ink-soft",
+                                  "content": "¥1,280 each · pending",
+                                  "fontFamily": "$font-body",
+                                  "fontSize": 12,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "R3DTNS",
+                              "name": "Line Total",
+                              "fill": "$ink",
+                              "content": "¥1,280",
+                              "fontFamily": "$font-body",
+                              "fontSize": 15,
+                              "fontWeight": "700"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "VH8HL",
+                          "name": "Qty Controls",
+                          "gap": 8,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "MudBk",
+                              "name": "Minus",
+                              "width": 32,
+                              "height": 32,
+                              "fill": "$surface-raised",
+                              "cornerRadius": 8,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "WC8qi",
+                                  "name": "Minus L",
+                                  "fill": "$ink",
+                                  "content": "−",
+                                  "fontFamily": "$font-body",
+                                  "fontSize": 16,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "OdBJU",
+                              "name": "Qty",
+                              "fill": "$ink",
+                              "content": "1",
+                              "fontFamily": "$font-body",
+                              "fontSize": 14,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "twuJV",
+                              "name": "Plus",
+                              "width": 32,
+                              "height": 32,
+                              "fill": "$surface-raised",
+                              "cornerRadius": 8,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "tXtVd",
+                                  "name": "Plus L",
+                                  "fill": "$ink",
+                                  "content": "+",
+                                  "fontFamily": "$font-body",
+                                  "fontSize": 16,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "akKrL",
+                              "name": "Remove",
+                              "fill": "$danger-soft",
+                              "cornerRadius": 8,
+                              "padding": [
+                                8,
+                                12
+                              ],
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "Ybywu",
+                                  "name": "Remove L",
+                                  "fill": "$danger",
+                                  "content": "Remove",
+                                  "fontFamily": "$font-body",
+                                  "fontSize": 12,
+                                  "fontWeight": "600"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "cKDbA",
+                      "name": "Line · Matcha Latte",
+                      "width": "fill_container",
+                      "fill": "$bg",
+                      "cornerRadius": "$r-lg",
+                      "layout": "vertical",
+                      "gap": 8,
+                      "padding": 14,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "P3qm59",
+                          "name": "Line Top",
+                          "width": "fill_container",
+                          "gap": 12,
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "Y9ZALV",
+                              "name": "Line Info",
+                              "width": "fill_container",
+                              "layout": "vertical",
+                              "gap": 6,
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "lNlF1",
+                                  "name": "Dish",
+                                  "fill": "$ink",
+                                  "content": "Matcha Latte",
+                                  "fontFamily": "$font-body",
+                                  "fontSize": 15,
+                                  "fontWeight": "600"
+                                },
+                                {
+                                  "type": "frame",
+                                  "id": "pBLZA",
+                                  "name": "Price Row",
+                                  "width": "fill_container",
+                                  "gap": 8,
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "id": "OuEFE",
+                                      "name": "List Price",
+                                      "fill": "$ink-muted",
+                                      "content": "¥620",
+                                      "fontFamily": "$font-body",
+                                      "fontSize": 13,
+                                      "fontWeight": "normal"
+                                    },
+                                    {
+                                      "type": "text",
+                                      "id": "tmfAY",
+                                      "name": "Sale Price",
+                                      "fill": "$ink-soft",
+                                      "content": "¥558 each",
+                                      "fontFamily": "$font-body",
+                                      "fontSize": 13,
+                                      "fontWeight": "normal"
+                                    },
+                                    {
+                                      "id": "WScy8",
+                                      "type": "ref",
+                                      "ref": "mfDXR",
+                                      "name": "Discount Badge",
+                                      "flipX": false,
+                                      "flipY": false,
+                                      "width": 73,
+                                      "height": 22,
+                                      "x": 113,
+                                      "y": 0,
+                                      "descendants": {
+                                        "p3JqwL": {
+                                          "content": "−10%=¥558",
+                                          "fontStyle": "normal",
+                                          "fontWeight": "500"
+                                        }
+                                      }
+                                    },
+                                    {
+                                      "type": "text",
+                                      "id": "YrsW6",
+                                      "name": "Line Status",
+                                      "fill": "$success",
+                                      "content": "· confirmed",
+                                      "fontFamily": "$font-body",
+                                      "fontSize": 13,
+                                      "fontWeight": "600"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "fA8S5",
+                              "name": "Line Total",
+                              "fill": "$ink",
+                              "content": "¥1,116",
+                              "fontFamily": "$font-body",
+                              "fontSize": 15,
+                              "fontWeight": "700"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "yhS2I",
+                          "name": "Locked Qty",
+                          "fill": "$success",
+                          "content": "2× confirmed",
+                          "fontFamily": "$font-body",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "nN5cO",
+                      "name": "Line · Omurice",
+                      "width": "fill_container",
+                      "fill": "$bg",
+                      "cornerRadius": "$r-lg",
+                      "layout": "vertical",
+                      "gap": 8,
+                      "padding": 14,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "lakX8",
+                          "name": "Line Top",
+                          "width": "fill_container",
+                          "gap": 12,
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "lqC7u",
+                              "name": "Line Info",
+                              "width": "fill_container",
+                              "layout": "vertical",
+                              "gap": 6,
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "q1MMDT",
+                                  "name": "Dish",
+                                  "fill": "$ink",
+                                  "content": "Omurice",
+                                  "fontFamily": "$font-body",
+                                  "fontSize": 15,
+                                  "fontWeight": "600"
+                                },
+                                {
+                                  "type": "frame",
+                                  "id": "RabhP",
+                                  "name": "Price Row",
+                                  "width": "fill_container",
+                                  "gap": 8,
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "id": "zjCue",
+                                      "name": "List Price",
+                                      "fill": "$ink-muted",
+                                      "content": "¥1,100",
+                                      "fontFamily": "$font-body",
+                                      "fontSize": 13,
+                                      "fontWeight": "normal"
+                                    },
+                                    {
+                                      "type": "text",
+                                      "id": "CJxkv",
+                                      "name": "Sale Price",
+                                      "fill": "$ink-soft",
+                                      "content": "¥1,000 each",
+                                      "fontFamily": "$font-body",
+                                      "fontSize": 13,
+                                      "fontWeight": "normal"
+                                    },
+                                    {
+                                      "id": "J249gG",
+                                      "type": "ref",
+                                      "ref": "mfDXR",
+                                      "name": "Discount Badge",
+                                      "descendants": {
+                                        "p3JqwL": {
+                                          "content": "−¥100=¥1,000",
+                                          "fontWeight": "500"
+                                        }
+                                      }
+                                    },
+                                    {
+                                      "type": "text",
+                                      "id": "w8kTs",
+                                      "name": "Line Status",
+                                      "fill": "$success",
+                                      "content": "· confirmed",
+                                      "fontFamily": "$font-body",
+                                      "fontSize": 13,
+                                      "fontWeight": "600"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "KVF74",
+                              "name": "Line Total",
+                              "fill": "$ink",
+                              "content": "¥1,000",
+                              "fontFamily": "$font-body",
+                              "fontSize": 15,
+                              "fontWeight": "700"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "pqYPt",
+                          "name": "Locked Qty",
+                          "fill": "$success",
+                          "content": "1× confirmed",
+                          "fontFamily": "$font-body",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "lEJTH",
+                  "name": "Order Footer",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 12,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "C0QXP",
+                      "name": "Total Row",
+                      "width": "fill_container",
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "YUnXK",
+                          "name": "Total Label",
+                          "fill": "$ink",
+                          "content": "Total",
+                          "fontFamily": "$font-display",
+                          "fontSize": 20,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "bW3O5",
+                          "name": "Total Value",
+                          "fill": "$gold-deep",
+                          "content": "¥3,396",
+                          "fontFamily": "$font-display",
+                          "fontSize": 28,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "iTS6U",
+                      "name": "Pending Hint",
+                      "fill": "$ink-muted",
+                      "content": "1 pending — confirm before paying",
+                      "fontFamily": "$font-body",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "to2iC",
+                      "name": "Actions",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 10,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "X7ZQC",
+                          "name": "Action Row 1",
+                          "width": "fill_container",
+                          "gap": 10,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "ZtH8r",
+                              "name": "Confirm",
+                              "width": "fill_container",
+                              "height": 48,
+                              "fill": "$gold",
+                              "cornerRadius": "$r-md",
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "BgcrN",
+                                  "name": "Confirm L",
+                                  "fill": "#FFFFFF",
+                                  "content": "Confirm",
+                                  "fontFamily": "$font-body",
+                                  "fontSize": 15,
+                                  "fontWeight": "700"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "X0wn8g",
+                              "name": "Mark Served",
+                              "width": "fill_container",
+                              "height": 48,
+                              "fill": "$brown",
+                              "cornerRadius": "$r-md",
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "bfdeP",
+                                  "name": "Served L",
+                                  "fill": "#FFFFFF",
+                                  "content": "Mark served",
+                                  "fontFamily": "$font-body",
+                                  "fontSize": 15,
+                                  "fontWeight": "600"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "qxsc7",
+                          "name": "Action Row 2",
+                          "width": "fill_container",
+                          "gap": 10,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "skgLI",
+                              "name": "Pay Method",
+                              "width": 140,
+                              "height": 48,
+                              "fill": "$bg",
+                              "cornerRadius": "$r-md",
+                              "stroke": "$line",
+                              "strokeWidth": 1,
+                              "strokeAlignment": "inner",
+                              "padding": [
+                                0,
+                                14
+                              ],
+                              "justifyContent": "space_between",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "z74gjo",
+                                  "name": "Method L",
+                                  "fill": "$ink",
+                                  "content": "Cash",
+                                  "fontFamily": "$font-body",
+                                  "fontSize": 14,
+                                  "fontWeight": "normal"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "YIVWJ",
+                                  "name": "Chevron",
+                                  "fill": "$ink-muted",
+                                  "content": "▾",
+                                  "fontFamily": "$font-body",
+                                  "fontSize": 12,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "y9yhNX",
+                              "name": "Pay",
+                              "width": "fill_container",
+                              "height": 48,
+                              "fill": "$gold-soft",
+                              "cornerRadius": "$r-md",
+                              "stroke": "$gold",
+                              "strokeWidth": 1,
+                              "strokeAlignment": "inner",
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "YeijV",
+                                  "name": "Pay L",
+                                  "fill": "$gold-deep",
+                                  "content": "Pay",
+                                  "fontFamily": "$font-body",
+                                  "fontSize": 15,
+                                  "fontWeight": "700"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "Jzm34",
+                          "name": "Force Cancel",
+                          "width": "fill_container",
+                          "height": 44,
+                          "fill": "$danger-soft",
+                          "cornerRadius": "$r-md",
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "jtIZE",
+                              "name": "Force L",
+                              "fill": "$danger",
+                              "content": "Force cancel",
+                              "fontFamily": "$font-body",
+                              "fontSize": 14,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "lFcNn",
+              "name": "Menu Pane",
+              "width": "fill_container",
+              "height": "fill_container",
+              "fill": "$surface-raised",
+              "cornerRadius": "$r-xl",
+              "effect": [
+                {
+                  "type": "shadow",
+                  "shadowType": "outer",
+                  "color": "#2C1E140A",
+                  "offset": {
+                    "x": 0,
+                    "y": 1
+                  },
+                  "blur": 2
+                },
+                {
+                  "type": "shadow",
+                  "shadowType": "outer",
+                  "color": "#2C1E140C",
+                  "offset": {
+                    "x": 0,
+                    "y": 10
+                  },
+                  "blur": 24
+                }
+              ],
+              "layout": "vertical",
+              "gap": 16,
+              "padding": 20,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "rMgD6",
+                  "name": "Menu Head",
+                  "width": "fill_container",
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "yZvX4",
+                      "name": "Menu Title",
+                      "fill": "$ink",
+                      "content": "Menu",
+                      "fontFamily": "$font-display",
+                      "fontSize": 22,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "PraE4",
+                      "name": "Menu Hint",
+                      "fill": "$ink-muted",
+                      "content": "Tap Add to grow the check",
+                      "fontFamily": "$font-body",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "hjOB4",
+                  "name": "Categories",
+                  "width": "fill_container",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "OcBGL",
+                      "name": "Cat · All",
+                      "fill": "$gold",
+                      "cornerRadius": 999,
+                      "padding": [
+                        8,
+                        14
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "j0wnzL",
+                          "name": "Cat L",
+                          "fill": "#FFFFFF",
+                          "content": "All",
+                          "fontFamily": "$font-body",
+                          "fontSize": 13,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "GBBlT",
+                      "name": "Cat · Japanese",
+                      "fill": "$bg",
+                      "cornerRadius": 999,
+                      "padding": [
+                        8,
+                        14
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "UTXx5",
+                          "name": "Cat L",
+                          "fill": "$ink-soft",
+                          "content": "Japanese",
+                          "fontFamily": "$font-body",
+                          "fontSize": 13,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "hDV6Y",
+                      "name": "Cat · Drinks",
+                      "fill": "$bg",
+                      "cornerRadius": 999,
+                      "padding": [
+                        8,
+                        14
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "q9CU3O",
+                          "name": "Cat L",
+                          "fill": "$ink-soft",
+                          "content": "Drinks",
+                          "fontFamily": "$font-body",
+                          "fontSize": 13,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "R3nAC6",
+                      "name": "Cat · Dessert",
+                      "fill": "$bg",
+                      "cornerRadius": 999,
+                      "padding": [
+                        8,
+                        14
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "ha24l",
+                          "name": "Cat L",
+                          "fill": "$ink-soft",
+                          "content": "Dessert",
+                          "fontFamily": "$font-body",
+                          "fontSize": 13,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "pHa8J",
+                  "name": "Menu List",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "layout": "vertical",
+                  "gap": 10,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "xMBsa",
+                      "name": "Menu · Chicken Katsu Curry",
+                      "width": "fill_container",
+                      "fill": "$bg",
+                      "cornerRadius": "$r-lg",
+                      "gap": 16,
+                      "padding": 14,
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "PSgTP",
+                          "name": "Info",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 4,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "yycrA",
+                              "name": "Name",
+                              "fill": "$ink",
+                              "content": "Chicken Katsu Curry",
+                              "fontFamily": "$font-body",
+                              "fontSize": 15,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "text",
+                              "id": "tJVVe",
+                              "name": "Meta",
+                              "fill": "$ink-soft",
+                              "content": "Japanese · ¥1,280",
+                              "fontFamily": "$font-body",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "hAJ62",
+                          "name": "Controls",
+                          "gap": 8,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "EfkFa",
+                              "name": "M-",
+                              "width": 34,
+                              "height": 34,
+                              "fill": "$surface-raised",
+                              "cornerRadius": 8,
+                              "stroke": "$line",
+                              "strokeWidth": 1,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "hwblg",
+                                  "name": "M-L",
+                                  "fill": "$ink",
+                                  "content": "−",
+                                  "fontFamily": "$font-body",
+                                  "fontSize": 16,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "WSOZe",
+                              "name": "Q",
+                              "fill": "$ink",
+                              "content": "1",
+                              "fontFamily": "$font-body",
+                              "fontSize": 14,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "VqpIZ",
+                              "name": "M+",
+                              "width": 34,
+                              "height": 34,
+                              "fill": "$surface-raised",
+                              "cornerRadius": 8,
+                              "stroke": "$line",
+                              "strokeWidth": 1,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "dtGop",
+                                  "name": "M+L",
+                                  "fill": "$ink",
+                                  "content": "+",
+                                  "fontFamily": "$font-body",
+                                  "fontSize": 16,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "PBYYB",
+                              "name": "Add",
+                              "fill": "$gold",
+                              "cornerRadius": "$r-md",
+                              "padding": [
+                                10,
+                                16
+                              ],
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "i3PtW",
+                                  "name": "Add L",
+                                  "fill": "#FFFFFF",
+                                  "content": "Add",
+                                  "fontFamily": "$font-body",
+                                  "fontSize": 13,
+                                  "fontWeight": "700"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "d6kLNH",
+                      "name": "Menu · Omurice",
+                      "width": "fill_container",
+                      "fill": "$bg",
+                      "cornerRadius": "$r-lg",
+                      "gap": 16,
+                      "padding": 14,
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "T4hBSb",
+                          "name": "Info",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 6,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "O7Z3p",
+                              "name": "Name",
+                              "fill": "$ink",
+                              "content": "Omurice",
+                              "fontFamily": "$font-body",
+                              "fontSize": 15,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "MLHvZ",
+                              "name": "Menu Meta Row",
+                              "width": "fill_container",
+                              "gap": 8,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "YvFDi",
+                                  "name": "Category",
+                                  "fill": "$ink-muted",
+                                  "content": "Japanese",
+                                  "fontFamily": "$font-body",
+                                  "fontSize": 13,
+                                  "fontWeight": "normal"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "HcVrW",
+                                  "name": "List Price",
+                                  "fill": "$ink-muted",
+                                  "content": "¥1,100",
+                                  "fontFamily": "$font-body",
+                                  "fontSize": 13,
+                                  "fontWeight": "normal"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "SE4ww",
+                                  "name": "Sale Price",
+                                  "fill": "$ink",
+                                  "content": "¥1,000",
+                                  "fontFamily": "$font-body",
+                                  "fontSize": 13,
+                                  "fontWeight": "600"
+                                },
+                                {
+                                  "id": "FBINP",
+                                  "type": "ref",
+                                  "ref": "mfDXR",
+                                  "name": "Discount Badge",
+                                  "descendants": {
+                                    "p3JqwL": {
+                                      "content": "−¥100=¥1,000",
+                                      "fontWeight": "500"
+                                    }
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "ULI8b",
+                          "name": "Controls",
+                          "gap": 8,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "w1mSPB",
+                              "name": "M-",
+                              "width": 34,
+                              "height": 34,
+                              "fill": "$surface-raised",
+                              "cornerRadius": 8,
+                              "stroke": "$line",
+                              "strokeWidth": 1,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "IHAb6",
+                                  "name": "M-L",
+                                  "fill": "$ink",
+                                  "content": "−",
+                                  "fontFamily": "$font-body",
+                                  "fontSize": 16,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "YvhrR",
+                              "name": "Q",
+                              "fill": "$ink",
+                              "content": "1",
+                              "fontFamily": "$font-body",
+                              "fontSize": 14,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "FLuu2",
+                              "name": "M+",
+                              "width": 34,
+                              "height": 34,
+                              "fill": "$surface-raised",
+                              "cornerRadius": 8,
+                              "stroke": "$line",
+                              "strokeWidth": 1,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "H3e7no",
+                                  "name": "M+L",
+                                  "fill": "$ink",
+                                  "content": "+",
+                                  "fontFamily": "$font-body",
+                                  "fontSize": 16,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "XxPpv",
+                              "name": "Add",
+                              "fill": "$gold",
+                              "cornerRadius": "$r-md",
+                              "padding": [
+                                10,
+                                16
+                              ],
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "u9m1H",
+                                  "name": "Add L",
+                                  "fill": "#FFFFFF",
+                                  "content": "Add",
+                                  "fontFamily": "$font-body",
+                                  "fontSize": 13,
+                                  "fontWeight": "700"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "QxlpL",
+                      "name": "Menu · Matcha Latte",
+                      "width": "fill_container",
+                      "fill": "$bg",
+                      "cornerRadius": "$r-lg",
+                      "gap": 16,
+                      "padding": 14,
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "K5Zrqn",
+                          "name": "Info",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 6,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "JI2gS",
+                              "name": "Name",
+                              "fill": "$ink",
+                              "content": "Matcha Latte",
+                              "fontFamily": "$font-body",
+                              "fontSize": 15,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "SkhaY",
+                              "name": "Menu Meta Row",
+                              "width": "fill_container",
+                              "gap": 8,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "O6SEau",
+                                  "name": "Category",
+                                  "fill": "$ink-muted",
+                                  "content": "Drinks",
+                                  "fontFamily": "$font-body",
+                                  "fontSize": 13,
+                                  "fontWeight": "normal"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "Zh77R",
+                                  "name": "List Price",
+                                  "fill": "$ink-muted",
+                                  "content": "¥620",
+                                  "fontFamily": "$font-body",
+                                  "fontSize": 13,
+                                  "fontWeight": "normal"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "z1gROe",
+                                  "name": "Sale Price",
+                                  "fill": "$ink",
+                                  "content": "¥558",
+                                  "fontFamily": "$font-body",
+                                  "fontSize": 13,
+                                  "fontWeight": "600"
+                                },
+                                {
+                                  "id": "xI73i",
+                                  "type": "ref",
+                                  "ref": "mfDXR",
+                                  "name": "Discount Badge",
+                                  "descendants": {
+                                    "p3JqwL": {
+                                      "content": "−10%=¥558",
+                                      "fontWeight": "500"
+                                    }
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "j6FP1g",
+                          "name": "Controls",
+                          "gap": 8,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "qsehP",
+                              "name": "M-",
+                              "width": 34,
+                              "height": 34,
+                              "fill": "$surface-raised",
+                              "cornerRadius": 8,
+                              "stroke": "$line",
+                              "strokeWidth": 1,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "jLTw3",
+                                  "name": "M-L",
+                                  "fill": "$ink",
+                                  "content": "−",
+                                  "fontFamily": "$font-body",
+                                  "fontSize": 16,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "D0IqUv",
+                              "name": "Q",
+                              "fill": "$ink",
+                              "content": "1",
+                              "fontFamily": "$font-body",
+                              "fontSize": 14,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "dPrF6",
+                              "name": "M+",
+                              "width": 34,
+                              "height": 34,
+                              "fill": "$surface-raised",
+                              "cornerRadius": 8,
+                              "stroke": "$line",
+                              "strokeWidth": 1,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "HRBKD",
+                                  "name": "M+L",
+                                  "fill": "$ink",
+                                  "content": "+",
+                                  "fontFamily": "$font-body",
+                                  "fontSize": 16,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "WsORe",
+                              "name": "Add",
+                              "fill": "$gold",
+                              "cornerRadius": "$r-md",
+                              "padding": [
+                                10,
+                                16
+                              ],
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "qfo3g",
+                                  "name": "Add L",
+                                  "fill": "#FFFFFF",
+                                  "content": "Add",
+                                  "fontFamily": "$font-body",
+                                  "fontSize": 13,
+                                  "fontWeight": "700"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "iOS3G",
+                      "name": "Menu · Tiramisu",
+                      "width": "fill_container",
+                      "fill": "$bg",
+                      "cornerRadius": "$r-lg",
+                      "gap": 16,
+                      "padding": 14,
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "dGIrx",
+                          "name": "Info",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 4,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "KUbI4",
+                              "name": "Name",
+                              "fill": "$ink-muted",
+                              "content": "Tiramisu",
+                              "fontFamily": "$font-body",
+                              "fontSize": 15,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "text",
+                              "id": "P9c4h",
+                              "name": "Meta",
+                              "fill": "$ink-soft",
+                              "content": "Dessert · ¥780 · Sold out",
+                              "fontFamily": "$font-body",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "wlsoJ",
+                          "name": "Controls",
+                          "gap": 8,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "aNco5",
+                              "name": "Mark Available",
+                              "fill": "$gold-soft",
+                              "cornerRadius": "$r-md",
+                              "padding": [
+                                10,
+                                12
+                              ],
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "DjpD5",
+                                  "name": "Avail L",
+                                  "fill": "$gold-deep",
+                                  "content": "Mark available",
+                                  "fontFamily": "$font-body",
+                                  "fontSize": 12,
+                                  "fontWeight": "600"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "hRPfX",
+      "x": 4950,
+      "y": 0,
+      "name": "Guest · Order (Phone) · Discounts",
+      "clip": true,
+      "width": 390,
+      "height": 844,
+      "fill": "$bg",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "PH1UL",
+          "name": "Status Bar",
+          "width": "fill_container",
+          "height": 48,
+          "padding": [
+            0,
+            20
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "z0rcC",
+              "name": "Time",
+              "fill": "$ink",
+              "content": "9:41",
+              "fontFamily": "$font-body",
+              "fontSize": 14,
+              "fontWeight": "600"
+            },
+            {
+              "type": "text",
+              "id": "wsgUP",
+              "name": "Icons",
+              "fill": "$ink-muted",
+              "content": "●●●",
+              "fontFamily": "$font-body",
+              "fontSize": 10,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "XqMjI",
+          "name": "Guest Header",
+          "width": "fill_container",
+          "fill": "$surface-raised",
+          "effect": [
+            {
+              "type": "shadow",
+              "shadowType": "outer",
+              "color": "#2C1E140A",
+              "offset": {
+                "x": 0,
+                "y": 1
+              },
+              "blur": 2
+            },
+            {
+              "type": "shadow",
+              "shadowType": "outer",
+              "color": "#2C1E1408",
+              "offset": {
+                "x": 0,
+                "y": 6
+              },
+              "blur": 16
+            }
+          ],
+          "layout": "vertical",
+          "gap": 6,
+          "padding": [
+            8,
+            20,
+            16,
+            20
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "Qmr9p",
+              "name": "Head Row",
+              "width": "fill_container",
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "V5f9I",
+                  "name": "Table",
+                  "fill": "$ink",
+                  "content": "Table 5",
+                  "fontFamily": "$font-display",
+                  "fontSize": 26,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "Qutxq",
+                  "name": "Status",
+                  "fill": "$gold-soft",
+                  "cornerRadius": 999,
+                  "gap": 6,
+                  "padding": [
+                    6,
+                    12
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "ellipse",
+                      "id": "GsxHe",
+                      "name": "Dot",
+                      "fill": "$gold",
+                      "width": 7,
+                      "height": 7
+                    },
+                    {
+                      "type": "text",
+                      "id": "WgOAe",
+                      "name": "Status L",
+                      "fill": "$gold-deep",
+                      "content": "preparing",
+                      "fontFamily": "$font-body",
+                      "fontSize": 12,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "ShBip",
+              "name": "Sub",
+              "fill": "$ink-muted",
+              "content": "Guest order · scan QR to continue",
+              "fontFamily": "$font-body",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "qzLGa",
+          "name": "Home Indicator",
+          "width": "fill_container",
+          "height": 28,
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "rectangle",
+              "cornerRadius": 2,
+              "id": "V8Z6l",
+              "name": "Bar",
+              "fill": "$line",
+              "width": 120,
+              "height": 4
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "wNPxT",
+          "name": "Scroll",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "vertical",
+          "gap": 16,
+          "padding": 16,
+          "children": [
+            {
+              "type": "frame",
+              "id": "kkJjP",
+              "name": "Your Order",
+              "width": "fill_container",
+              "fill": "$surface-raised",
+              "cornerRadius": "$r-xl",
+              "effect": [
+                {
+                  "type": "shadow",
+                  "shadowType": "outer",
+                  "color": "#2C1E140A",
+                  "offset": {
+                    "x": 0,
+                    "y": 1
+                  },
+                  "blur": 2
+                },
+                {
+                  "type": "shadow",
+                  "shadowType": "outer",
+                  "color": "#2C1E140A",
+                  "offset": {
+                    "x": 0,
+                    "y": 8
+                  },
+                  "blur": 20
+                }
+              ],
+              "layout": "vertical",
+              "gap": 12,
+              "padding": 16,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "LyaIc",
+                  "name": "Order Title",
+                  "fill": "$ink",
+                  "content": "Your order",
+                  "fontFamily": "$font-display",
+                  "fontSize": 20,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "S6l9l5",
+                  "name": "GLine · Chicken Katsu Curry",
+                  "width": "fill_container",
+                  "fill": "$gold-soft",
+                  "cornerRadius": "$r-lg",
+                  "layout": "vertical",
+                  "gap": 8,
+                  "padding": 12,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "kpZRj",
+                      "name": "Top",
+                      "width": "fill_container",
+                      "gap": 10,
+                      "justifyContent": "space_between",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "J7NcZ",
+                          "name": "Info",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 3,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "Y3s7zR",
+                              "name": "N",
+                              "fill": "$ink",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "Chicken Katsu Curry",
+                              "fontFamily": "$font-body",
+                              "fontSize": 14,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "text",
+                              "id": "NGaEb",
+                              "name": "M",
+                              "fill": "$ink-soft",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "¥1,280 each · pending",
+                              "fontFamily": "$font-body",
+                              "fontSize": 11,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "FL7xP",
+                          "name": "T",
+                          "fill": "$ink",
+                          "content": "¥1,280",
+                          "fontFamily": "$font-body",
+                          "fontSize": 14,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "AEB72",
+                      "name": "Ctrls",
+                      "gap": 8,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "BcIvn",
+                          "name": "-",
+                          "width": 36,
+                          "height": 36,
+                          "fill": "$surface-raised",
+                          "cornerRadius": 10,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "bkZeS",
+                              "name": "-L",
+                              "fill": "$ink",
+                              "content": "−",
+                              "fontFamily": "$font-body",
+                              "fontSize": 18,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "Rj6UP",
+                          "name": "Q",
+                          "fill": "$ink",
+                          "content": "1",
+                          "fontFamily": "$font-body",
+                          "fontSize": 15,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "wgZ9G",
+                          "name": "+",
+                          "width": 36,
+                          "height": 36,
+                          "fill": "$surface-raised",
+                          "cornerRadius": 10,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "MsGdy",
+                              "name": "+L",
+                              "fill": "$ink",
+                              "content": "+",
+                              "fontFamily": "$font-body",
+                              "fontSize": 18,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "NZJAa",
+                          "name": "Rem",
+                          "fill": "$danger-soft",
+                          "cornerRadius": 10,
+                          "padding": [
+                            10,
+                            12
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "Mafz5",
+                              "name": "RemL",
+                              "fill": "$danger",
+                              "content": "Remove",
+                              "fontFamily": "$font-body",
+                              "fontSize": 12,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "nLr6k",
+                  "name": "GLine · Matcha Latte",
+                  "width": "fill_container",
+                  "fill": "$bg",
+                  "cornerRadius": "$r-lg",
+                  "layout": "vertical",
+                  "gap": 8,
+                  "padding": 12,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "ZHhRV",
+                      "name": "Top",
+                      "width": "fill_container",
+                      "gap": 10,
+                      "justifyContent": "space_between",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "V8ByXx",
+                          "name": "Info",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 6,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "VeRq9",
+                              "name": "N",
+                              "fill": "$ink",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "Matcha Latte",
+                              "fontFamily": "$font-body",
+                              "fontSize": 14,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "u61KI",
+                              "name": "Price Row",
+                              "width": "fill_container",
+                              "gap": 6,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "UmgLX",
+                                  "name": "List Price",
+                                  "fill": "$ink-muted",
+                                  "content": "¥620",
+                                  "fontFamily": "$font-body",
+                                  "fontSize": 12,
+                                  "fontWeight": "normal"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "Mqvq5",
+                                  "name": "Sale Price",
+                                  "fill": "$ink-soft",
+                                  "content": "¥558 each",
+                                  "fontFamily": "$font-body",
+                                  "fontSize": 12,
+                                  "fontWeight": "normal"
+                                },
+                                {
+                                  "id": "muk8X",
+                                  "type": "ref",
+                                  "ref": "mfDXR",
+                                  "name": "Discount Badge",
+                                  "descendants": {
+                                    "p3JqwL": {
+                                      "content": "−10%=¥558",
+                                      "fontWeight": "500"
+                                    }
+                                  }
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "TqQ8v",
+                                  "name": "Line Status",
+                                  "fill": "$success",
+                                  "content": "· confirmed",
+                                  "fontFamily": "$font-body",
+                                  "fontSize": 12,
+                                  "fontWeight": "600"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "M5rDo",
+                          "name": "T",
+                          "fill": "$ink",
+                          "content": "¥1,116",
+                          "fontFamily": "$font-body",
+                          "fontSize": 14,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "aFcZm",
+                      "name": "Locked",
+                      "fill": "$success",
+                      "content": "2× confirmed",
+                      "fontFamily": "$font-body",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "qv4S1",
+                  "name": "Total",
+                  "width": "fill_container",
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "ItzSK",
+                      "name": "TL",
+                      "fill": "$ink",
+                      "content": "Total",
+                      "fontFamily": "$font-display",
+                      "fontSize": 18,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "dEj3U",
+                      "name": "TV",
+                      "fill": "$gold-deep",
+                      "content": "¥2,396",
+                      "fontFamily": "$font-display",
+                      "fontSize": 24,
+                      "fontWeight": "700"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "V3qQk",
+                  "name": "Hint",
+                  "fill": "$ink-muted",
+                  "content": "1 pending — confirm before paying",
+                  "fontFamily": "$font-body",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "V3Zl51",
+                  "name": "Guest Actions",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "kbUJZ",
+                      "name": "Confirm",
+                      "width": "fill_container",
+                      "height": 48,
+                      "fill": "$gold",
+                      "cornerRadius": "$r-md",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "HakXC",
+                          "name": "Confirm L",
+                          "fill": "#FFFFFF",
+                          "content": "Confirm",
+                          "fontFamily": "$font-body",
+                          "fontSize": 15,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "NhNmq",
+                      "name": "Pay Row",
+                      "width": "fill_container",
+                      "gap": 8,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "JyRGg",
+                          "name": "Method",
+                          "width": 110,
+                          "height": 48,
+                          "fill": "$bg",
+                          "cornerRadius": "$r-md",
+                          "stroke": "$line",
+                          "strokeWidth": 1,
+                          "padding": [
+                            0,
+                            12
+                          ],
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "oBoyA",
+                              "name": "Method L",
+                              "fill": "$ink",
+                              "content": "QR",
+                              "fontFamily": "$font-body",
+                              "fontSize": 14,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "OftNx",
+                              "name": "Chev",
+                              "fill": "$ink-muted",
+                              "content": "▾",
+                              "fontFamily": "$font-body",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "YbdXo",
+                          "name": "Pay",
+                          "width": "fill_container",
+                          "height": 48,
+                          "fill": "$gold-soft",
+                          "cornerRadius": "$r-md",
+                          "stroke": "$gold",
+                          "strokeWidth": 1,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "xV5OM",
+                              "name": "Pay L",
+                              "fill": "$gold-deep",
+                              "content": "Pay",
+                              "fontFamily": "$font-body",
+                              "fontSize": 15,
+                              "fontWeight": "700"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "blc65",
+                      "name": "Ask Staff",
+                      "fill": "$ink-muted",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Already confirmed dishes? Ask staff to force cancel.",
+                      "fontFamily": "$font-body",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "YG6NB",
+                      "name": "Quit",
+                      "width": "fill_container",
+                      "height": 44,
+                      "fill": "$danger-soft",
+                      "cornerRadius": "$r-md",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "FVjJv",
+                          "name": "Quit L",
+                          "fill": "$danger",
+                          "content": "Quit order",
+                          "fontFamily": "$font-body",
+                          "fontSize": 14,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "WV9SF",
+              "name": "Add More",
+              "width": "fill_container",
+              "fill": "$surface-raised",
+              "cornerRadius": "$r-xl",
+              "effect": [
+                {
+                  "type": "shadow",
+                  "shadowType": "outer",
+                  "color": "#2C1E140A",
+                  "offset": {
+                    "x": 0,
+                    "y": 1
+                  },
+                  "blur": 2
+                },
+                {
+                  "type": "shadow",
+                  "shadowType": "outer",
+                  "color": "#2C1E140A",
+                  "offset": {
+                    "x": 0,
+                    "y": 8
+                  },
+                  "blur": 20
+                }
+              ],
+              "layout": "vertical",
+              "gap": 12,
+              "padding": 16,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "S8mwd",
+                  "name": "Add Title",
+                  "fill": "$ink",
+                  "content": "Add more",
+                  "fontFamily": "$font-display",
+                  "fontSize": 20,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "XGeUH",
+                  "name": "Dish · Omurice",
+                  "width": "fill_container",
+                  "fill": "$bg",
+                  "cornerRadius": "$r-lg",
+                  "layout": "vertical",
+                  "gap": 10,
+                  "padding": 12,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "tvge3",
+                      "name": "Top",
+                      "width": "fill_container",
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "EWi2b",
+                          "name": "Info",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 6,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "OKVbv",
+                              "name": "N",
+                              "fill": "$ink",
+                              "content": "Omurice",
+                              "fontFamily": "$font-body",
+                              "fontSize": 14,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "PdNQr",
+                              "name": "Menu Meta Row",
+                              "width": "fill_container",
+                              "gap": 6,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "E4UvCU",
+                                  "name": "List Price",
+                                  "fill": "$ink-muted",
+                                  "content": "¥1,100",
+                                  "fontFamily": "$font-body",
+                                  "fontSize": 12,
+                                  "fontWeight": "normal"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "wNt2p",
+                                  "name": "Sale Price",
+                                  "fill": "$ink",
+                                  "content": "¥1,000",
+                                  "fontFamily": "$font-body",
+                                  "fontSize": 12,
+                                  "fontWeight": "600"
+                                },
+                                {
+                                  "id": "SaaFJ",
+                                  "type": "ref",
+                                  "ref": "mfDXR",
+                                  "name": "Discount Badge",
+                                  "descendants": {
+                                    "p3JqwL": {
+                                      "content": "−¥100=¥1,000",
+                                      "fontWeight": "500"
+                                    }
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "D10VcC",
+                      "name": "Add Ctrls",
+                      "width": "fill_container",
+                      "gap": 8,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "QEKMI",
+                          "name": "-",
+                          "width": 40,
+                          "height": 40,
+                          "fill": "$surface-raised",
+                          "cornerRadius": 12,
+                          "stroke": "$line",
+                          "strokeWidth": 1,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "qEQHa",
+                              "name": "-L",
+                              "fill": "$ink",
+                              "content": "−",
+                              "fontFamily": "$font-body",
+                              "fontSize": 18,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "Enr6v",
+                          "name": "Q",
+                          "fill": "$ink",
+                          "content": "1",
+                          "fontFamily": "$font-body",
+                          "fontSize": 15,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "bYIX0",
+                          "name": "+",
+                          "width": 40,
+                          "height": 40,
+                          "fill": "$surface-raised",
+                          "cornerRadius": 12,
+                          "stroke": "$line",
+                          "strokeWidth": 1,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "MFnt9",
+                              "name": "+L",
+                              "fill": "$ink",
+                              "content": "+",
+                              "fontFamily": "$font-body",
+                              "fontSize": 18,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "QkQSZ",
+                          "name": "Add",
+                          "width": "fill_container",
+                          "height": 40,
+                          "fill": "$gold",
+                          "cornerRadius": 12,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "Xt4GW",
+                              "name": "Add L",
+                              "fill": "#FFFFFF",
+                              "content": "Add",
+                              "fontFamily": "$font-body",
+                              "fontSize": 14,
+                              "fontWeight": "700"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "N1McNJ",
+                  "name": "Dish · Matcha Latte",
+                  "width": "fill_container",
+                  "fill": "$bg",
+                  "cornerRadius": "$r-lg",
+                  "layout": "vertical",
+                  "gap": 10,
+                  "padding": 12,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "puail",
+                      "name": "Top",
+                      "width": "fill_container",
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "g1e9op",
+                          "name": "Info",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 6,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "coHX5",
+                              "name": "N",
+                              "fill": "$ink",
+                              "content": "Matcha Latte",
+                              "fontFamily": "$font-body",
+                              "fontSize": 14,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "QBV2Z",
+                              "name": "Menu Meta Row",
+                              "width": "fill_container",
+                              "gap": 6,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "AR7RA",
+                                  "name": "List Price",
+                                  "fill": "$ink-muted",
+                                  "content": "¥620",
+                                  "fontFamily": "$font-body",
+                                  "fontSize": 12,
+                                  "fontWeight": "normal"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "Q4xsQK",
+                                  "name": "Sale Price",
+                                  "fill": "$ink",
+                                  "content": "¥558",
+                                  "fontFamily": "$font-body",
+                                  "fontSize": 12,
+                                  "fontWeight": "600"
+                                },
+                                {
+                                  "id": "T3y5G",
+                                  "type": "ref",
+                                  "ref": "mfDXR",
+                                  "name": "Discount Badge",
+                                  "descendants": {
+                                    "p3JqwL": {
+                                      "content": "−10%=¥558",
+                                      "fontWeight": "500"
+                                    }
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "O4TZG1",
+                      "name": "Add Ctrls",
+                      "width": "fill_container",
+                      "gap": 8,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "E8aeLn",
+                          "name": "-",
+                          "width": 40,
+                          "height": 40,
+                          "fill": "$surface-raised",
+                          "cornerRadius": 12,
+                          "stroke": "$line",
+                          "strokeWidth": 1,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "biO6n",
+                              "name": "-L",
+                              "fill": "$ink",
+                              "content": "−",
+                              "fontFamily": "$font-body",
+                              "fontSize": 18,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "WQYLs",
+                          "name": "Q",
+                          "fill": "$ink",
+                          "content": "1",
+                          "fontFamily": "$font-body",
+                          "fontSize": 15,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "OnTAD",
+                          "name": "+",
+                          "width": 40,
+                          "height": 40,
+                          "fill": "$surface-raised",
+                          "cornerRadius": 12,
+                          "stroke": "$line",
+                          "strokeWidth": 1,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "UL0JV",
+                              "name": "+L",
+                              "fill": "$ink",
+                              "content": "+",
+                              "fontFamily": "$font-body",
+                              "fontSize": 18,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "g0E5R",
+                          "name": "Add",
+                          "width": "fill_container",
+                          "height": 40,
+                          "fill": "$gold",
+                          "cornerRadius": 12,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "aLcxw",
+                              "name": "Add L",
+                              "fill": "#FFFFFF",
+                              "content": "Add",
+                              "fontFamily": "$font-body",
+                              "fontSize": 14,
+                              "fontWeight": "700"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "zh4x7",
+                  "name": "Dish · Tiramisu",
+                  "width": "fill_container",
+                  "fill": "$bg",
+                  "cornerRadius": "$r-lg",
+                  "layout": "vertical",
+                  "gap": 10,
+                  "padding": 12,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "Sy6p4",
+                      "name": "Top",
+                      "width": "fill_container",
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "NTXk6",
+                          "name": "Info",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 2,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "HO0zG",
+                              "name": "N",
+                              "fill": "$ink-muted",
+                              "content": "Tiramisu",
+                              "fontFamily": "$font-body",
+                              "fontSize": 14,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "text",
+                              "id": "xOBaL",
+                              "name": "P",
+                              "fill": "$ink-soft",
+                              "content": "¥780 · Sold out",
+                              "fontFamily": "$font-body",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "th7ki",
+                      "name": "SO",
+                      "fill": "$ink-muted",
+                      "content": "Unavailable",
+                      "fontFamily": "$font-body",
+                      "fontSize": 12,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   ],
   "variables": {
@@ -8374,6 +11185,18 @@
     "r-xl": {
       "type": "number",
       "value": 22
+    },
+    "discount-pink": {
+      "type": "color",
+      "value": "#E45D8A"
+    },
+    "discount-pink-deep": {
+      "type": "color",
+      "value": "#C4476F"
+    },
+    "discount-pink-soft": {
+      "type": "color",
+      "value": "#FCE8F0"
     }
   },
   "fileToken": "d33503ee-86c8-4945-8c36-c7f7c67cc929"

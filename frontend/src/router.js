@@ -7,6 +7,7 @@ import ReceiptView from './views/ReceiptView.vue'
 import MenuAdminView from './views/MenuAdminView.vue'
 import ReportsView from './views/ReportsView.vue'
 import CancelledOpsView from './views/CancelledOpsView.vue'
+import DiscountsAdminView from './views/DiscountsAdminView.vue'
 import GuestOrderView from './views/GuestOrderView.vue'
 import GuestReceiptView from './views/GuestReceiptView.vue'
 import DraftTakeoutView from './views/DraftTakeoutView.vue'
@@ -31,6 +32,7 @@ const router = createRouter({
     { path: '/takeout-queue', component: TakeoutQueueView, meta: { auth: true } },
     { path: '/takeout-queue/new', component: DraftTakeoutView, meta: { auth: true } },
     { path: '/admin/menu', component: MenuAdminView, meta: { auth: true, role: 'admin' } },
+    { path: '/admin/discounts', component: DiscountsAdminView, meta: { auth: true, role: 'admin' } },
     { path: '/admin/reports', component: ReportsView, meta: { auth: true, role: 'admin' } },
     { path: '/admin/cancelled', component: CancelledOpsView, meta: { auth: true, role: 'admin' } },
     { path: '/t/:token', component: GuestOrderView, meta: { guest: true } },

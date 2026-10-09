@@ -11,6 +11,11 @@ export const btnPill = `${btn} rounded-full px-3.5 py-1.5 text-sm font-semibold 
 export const btnPillActive = `${btnPill} border-brown bg-brown text-surface`
 
 export const card = 'mb-4 rounded-xl border border-line bg-surface-raised px-5 py-[1.15rem]'
+/** Left form: brown outline = create, gold/yellow = edit */
+export const cardFormAdd =
+  'mb-4 rounded-xl border-2 border-brown bg-surface-raised px-5 py-[1.15rem] shadow-[inset_4px_0_0_var(--color-brown)]'
+export const cardFormEdit =
+  'mb-4 rounded-xl border-2 border-gold bg-[#fffbf0] px-5 py-[1.15rem] shadow-[inset_4px_0_0_var(--color-gold)]'
 export const muted = 'text-sm text-ink-muted'
 export const row = 'flex flex-wrap items-center gap-2'
 export const rowEnd = 'flex flex-wrap items-end gap-2'

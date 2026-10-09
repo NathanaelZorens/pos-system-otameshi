@@ -19,7 +19,21 @@
           :key="it.id"
           class="flex justify-between gap-4 border-b border-line py-1.5 text-[0.95rem]"
         >
-          <span>{{ it.quantity }}× {{ it.name_snapshot }}</span>
+          <span class="min-w-0">
+            {{ it.quantity }}× {{ it.name_snapshot }}
+            <span
+              v-if="hasDiscount(it.list_unit_price_cents, it.unit_price_cents)"
+              class="mt-1 flex flex-wrap items-center gap-1.5 text-sm text-ink-muted"
+            >
+              <span class="line-through opacity-70">{{ formatMoney(it.list_unit_price_cents) }}</span>
+              <span>{{ formatMoney(it.unit_price_cents) }}</span>
+              <DiscountBadge
+                :list-cents="it.list_unit_price_cents"
+                :unit-cents="it.unit_price_cents"
+                :stored-label="it.discount_label || ''"
+              />
+            </span>
+          </span>
           <strong>{{ formatMoney(it.line_total_cents) }}</strong>
         </li>
       </ul>
@@ -42,6 +56,8 @@
 import { computed, onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { api, formatMoney } from '../api'
+import DiscountBadge from '../components/DiscountBadge.vue'
+import { hasDiscount } from '../discountBadge'
 import { btn, btnPrimary, card, muted } from '../twUi'
 
 const route = useRoute()

@@ -132,24 +132,16 @@ func (a *API) TakeoutCreateOrder(w http.ResponseWriter, r *http.Request) {
 	}
 	for _, menuItemID := range orderKeys {
 		qty := qtyByItem[menuItemID]
-		var name string
-		var price int
-		var soldOut, active int
-		if err := tx.QueryRow(
-			`SELECT name, price_cents, is_sold_out, is_active FROM menu_items WHERE id = ?`,
-			menuItemID,
-		).Scan(&name, &price, &soldOut, &active); err != nil {
-			httpjson.Error(w, http.StatusNotFound, "menu item not found")
-			return
-		}
-		if active != 1 || soldOut == 1 {
-			httpjson.Error(w, http.StatusConflict, "item unavailable: "+name)
-			return
-		}
-		if _, err := tx.Exec(
-			`INSERT INTO order_items (id, order_id, menu_item_id, name_snapshot, unit_price_cents, quantity, status) VALUES (?, ?, ?, ?, ?, ?, 'pending')`,
-			uuid.NewString(), orderID, menuItemID, name, price, qty,
-		); err != nil {
+		if err := insertPendingOrderItem(tx, orderID, menuItemID, qty); err != nil {
+			var unavail *itemUnavailableError
+			if errors.As(err, &unavail) {
+				httpjson.Error(w, http.StatusConflict, unavail.Error())
+				return
+			}
+			if errors.Is(err, errMenuItemNotFound) {
+				httpjson.Error(w, http.StatusNotFound, "menu item not found")
+				return
+			}
 			httpjson.Error(w, http.StatusInternalServerError, "db error")
 			return
 		}
@@ -213,24 +205,16 @@ func (a *API) StaffCreateTakeoutOrder(w http.ResponseWriter, r *http.Request) {
 	}
 	for _, menuItemID := range orderKeys {
 		qty := qtyByItem[menuItemID]
-		var name string
-		var price int
-		var soldOut, active int
-		if err := tx.QueryRow(
-			`SELECT name, price_cents, is_sold_out, is_active FROM menu_items WHERE id = ?`,
-			menuItemID,
-		).Scan(&name, &price, &soldOut, &active); err != nil {
-			httpjson.Error(w, http.StatusNotFound, "menu item not found")
-			return
-		}
-		if active != 1 || soldOut == 1 {
-			httpjson.Error(w, http.StatusConflict, "item unavailable: "+name)
-			return
-		}
-		if _, err := tx.Exec(
-			`INSERT INTO order_items (id, order_id, menu_item_id, name_snapshot, unit_price_cents, quantity, status) VALUES (?, ?, ?, ?, ?, ?, 'pending')`,
-			uuid.NewString(), orderID, menuItemID, name, price, qty,
-		); err != nil {
+		if err := insertPendingOrderItem(tx, orderID, menuItemID, qty); err != nil {
+			var unavail *itemUnavailableError
+			if errors.As(err, &unavail) {
+				httpjson.Error(w, http.StatusConflict, unavail.Error())
+				return
+			}
+			if errors.Is(err, errMenuItemNotFound) {
+				httpjson.Error(w, http.StatusNotFound, "menu item not found")
+				return
+			}
 			httpjson.Error(w, http.StatusInternalServerError, "db error")
 			return
 		}

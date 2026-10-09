@@ -77,7 +77,75 @@ func migrate(conn *sql.DB) error {
 	if err := ensureServedAt(conn); err != nil {
 		return err
 	}
+	if err := ensureDiscountRules(conn); err != nil {
+		return err
+	}
 	return ensureGuestTokens(conn)
+}
+
+// v5: discount_rules + order_items price snapshots.
+func ensureDiscountRules(conn *sql.DB) error {
+	if _, err := conn.Exec(`
+		CREATE TABLE IF NOT EXISTS discount_rules (
+			id TEXT PRIMARY KEY,
+			name TEXT NOT NULL,
+			target_type TEXT NOT NULL CHECK (target_type IN ('item', 'category')),
+			target_id TEXT NOT NULL,
+			discount_type TEXT NOT NULL CHECK (discount_type IN ('fixed', 'percent')),
+			amount INTEGER NOT NULL CHECK (amount > 0),
+			start_time TEXT,
+			end_time TEXT,
+			weekdays TEXT,
+			starts_on TEXT,
+			ends_on TEXT,
+			is_active INTEGER NOT NULL DEFAULT 1,
+			is_featured_price INTEGER NOT NULL DEFAULT 0,
+			created_at TEXT NOT NULL DEFAULT (datetime('now')),
+			updated_at TEXT NOT NULL DEFAULT (datetime('now'))
+		)
+	`); err != nil {
+		return fmt.Errorf("create discount_rules: %w", err)
+	}
+	if _, err := conn.Exec(`CREATE INDEX IF NOT EXISTS idx_discount_rules_target ON discount_rules(target_type, target_id)`); err != nil {
+		return fmt.Errorf("index discount_rules: %w", err)
+	}
+	okFeat, err := hasColumn(conn, "discount_rules", "is_featured_price")
+	if err != nil {
+		return err
+	}
+	if !okFeat {
+		if _, err := conn.Exec(`ALTER TABLE discount_rules ADD COLUMN is_featured_price INTEGER NOT NULL DEFAULT 0`); err != nil {
+			return fmt.Errorf("add discount_rules.is_featured_price: %w", err)
+		}
+	}
+
+	cols := []struct {
+		name string
+		ddl  string
+	}{
+		{"list_unit_price_cents", `ALTER TABLE order_items ADD COLUMN list_unit_price_cents INTEGER`},
+		{"discount_rule_id", `ALTER TABLE order_items ADD COLUMN discount_rule_id TEXT`},
+		{"discount_label", `ALTER TABLE order_items ADD COLUMN discount_label TEXT`},
+	}
+	for _, c := range cols {
+		ok, err := hasColumn(conn, "order_items", c.name)
+		if err != nil {
+			return err
+		}
+		if !ok {
+			if _, err := conn.Exec(c.ddl); err != nil {
+				return fmt.Errorf("add order_items.%s: %w", c.name, err)
+			}
+		}
+	}
+	if _, err := conn.Exec(`
+		UPDATE order_items
+		SET list_unit_price_cents = unit_price_cents
+		WHERE list_unit_price_cents IS NULL
+	`); err != nil {
+		return fmt.Errorf("backfill list_unit_price_cents: %w", err)
+	}
+	return nil
 }
 
 // served_at tracks kitchen/service independently of pay (pay-before-served).

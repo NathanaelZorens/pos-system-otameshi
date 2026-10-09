@@ -6,73 +6,89 @@
     </div>
     <p :class="muted">Draft — the table stays Free until you add the first item.</p>
 
-    <div :class="card">
-      <div :class="row">
-        <label>
-          Customer name (optional)
-          <input v-model="customerName" placeholder="Alex" />
-        </label>
-        <span :class="muted">Status: draft</span>
+    <div class="grid gap-4 lg:grid-cols-[minmax(300px,0.42fr)_minmax(0,1fr)] lg:items-start">
+      <div :class="[card, 'lg:sticky lg:top-3 lg:mb-0']">
+        <div :class="row">
+          <label class="min-w-48 flex-1">
+            Customer name (optional)
+            <input v-model="customerName" placeholder="Alex" />
+          </label>
+          <span :class="muted">Status: draft</span>
+        </div>
+        <h2>Current order</h2>
+        <p :class="muted">No items yet. Choose qty and Add to start the order.</p>
+        <p class="font-display text-xl font-semibold">Total: {{ formatMoney(0) }}</p>
       </div>
-      <h2>Current order</h2>
-      <p :class="muted">No items yet. Choose qty and Add to start the order.</p>
-      <p><strong>Total: {{ formatMoney(0) }}</strong></p>
-    </div>
 
-    <div :class="card">
-      <h2>Menu</h2>
-      <p v-if="menuError" class="text-danger">{{ menuError }}</p>
-      <div class="mb-3 flex flex-wrap gap-1.5" v-if="categoryFilters.length">
-        <button type="button" :class="!categoryFilter ? btnPillActive : btnPill" @click="categoryFilter = ''">
-          All
-        </button>
-        <button
-          v-for="c in categoryFilters"
-          :key="c.id"
-          type="button"
-          :class="categoryFilter === c.id ? btnPillActive : btnPill"
-          @click="categoryFilter = c.id"
-        >
-          {{ c.name }}
-        </button>
-      </div>
-      <div class="grid gap-2">
-        <div
-          v-for="m in filteredMenu"
-          :key="m.id"
-          class="flex items-center justify-between gap-3 border-b border-line py-3.5"
-          :class="{ 'opacity-55': m.is_sold_out }"
-        >
-          <div>
-            <strong>{{ m.name }}</strong>
-            <div :class="muted">{{ m.category || 'Uncategorized' }} · {{ formatMoney(m.price_cents) }}</div>
-          </div>
-          <div :class="row" v-if="!m.is_sold_out">
-            <button type="button" :class="btn" @click="bumpAddQty(m.id, -1)" :disabled="busy || addQty(m.id) <= 1">
-              −
-            </button>
-            <input
-              class="qty-input !mt-0 !w-[3.25rem] max-w-[3.25rem] text-center"
-              type="number"
-              min="1"
-              :value="addQty(m.id)"
-              @change="setAddQty(m.id, $event.target.value)"
-            />
-            <button type="button" :class="btn" @click="bumpAddQty(m.id, 1)" :disabled="busy">+</button>
-            <button type="button" :class="btnPrimary" @click="addItem(m)" :disabled="busy">
-              {{ busy ? 'Starting…' : 'Add' }}
-            </button>
-            <button type="button" :class="btn" @click="toggleSoldOut(m)" :disabled="busy">Sold out</button>
-          </div>
-          <div :class="row" v-else>
-            <span :class="muted">Sold out</span>
-            <button type="button" :class="btn" @click="toggleSoldOut(m)" :disabled="busy">Mark available</button>
+      <div :class="[card, 'lg:mb-0']">
+        <h2>Menu</h2>
+        <p v-if="menuError" class="text-danger">{{ menuError }}</p>
+        <div class="mb-3 flex flex-wrap gap-1.5" v-if="categoryFilters.length">
+          <button type="button" :class="!categoryFilter ? btnPillActive : btnPill" @click="categoryFilter = ''">
+            All
+          </button>
+          <button
+            v-for="c in categoryFilters"
+            :key="c.id"
+            type="button"
+            :class="categoryFilter === c.id ? btnPillActive : btnPill"
+            @click="categoryFilter = c.id"
+          >
+            {{ c.name }}
+          </button>
+        </div>
+        <div class="grid gap-2">
+          <div
+            v-for="m in filteredMenu"
+            :key="m.id"
+            class="flex flex-wrap items-center justify-between gap-3 border-b border-line py-3.5"
+            :class="{ 'opacity-55': m.is_sold_out }"
+          >
+            <div class="min-w-0 flex-1">
+              <strong>{{ m.name }}</strong>
+              <div class="mt-1 flex flex-wrap items-center gap-1.5 text-sm text-ink-muted">
+                <span>{{ m.category || 'Uncategorized' }}</span>
+                <template v-if="hasDiscount(m.price_cents, m.unit_price_cents ?? m.price_cents)">
+                  <span class="line-through opacity-70">{{ formatMoney(m.price_cents) }}</span>
+                  <span class="font-semibold text-ink">{{ formatMoney(m.unit_price_cents) }}</span>
+                  <DiscountBadge
+                    :list-cents="m.price_cents"
+                    :unit-cents="m.unit_price_cents"
+                    :stored-label="m.discount_label || ''"
+                  />
+                </template>
+                <template v-else>
+                  <span>· {{ formatMoney(m.price_cents) }}</span>
+                </template>
+              </div>
+            </div>
+            <div :class="row" v-if="!m.is_sold_out">
+              <button type="button" :class="btn" @click="bumpAddQty(m.id, -1)" :disabled="busy || addQty(m.id) <= 1">
+                −
+              </button>
+              <input
+                class="qty-input !mt-0 !w-[3.25rem] max-w-[3.25rem] text-center"
+                type="number"
+                min="1"
+                :value="addQty(m.id)"
+                @change="setAddQty(m.id, $event.target.value)"
+              />
+              <button type="button" :class="btn" @click="bumpAddQty(m.id, 1)" :disabled="busy">+</button>
+              <button type="button" :class="btnPrimary" @click="addItem(m)" :disabled="busy">
+                {{ busy ? 'Starting…' : 'Add' }}
+              </button>
+              <button type="button" :class="btn" @click="toggleSoldOut(m)" :disabled="busy">Sold out</button>
+            </div>
+            <div :class="row" v-else>
+              <span :class="muted">Sold out</span>
+              <button type="button" :class="btn" @click="toggleSoldOut(m)" :disabled="busy">Mark available</button>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <p v-if="error" class="text-danger">{{ error }}</p>
+    <p v-if="error" class="mt-3 text-danger">{{ error }}</p>
   </div>
 </template>
 
@@ -80,6 +96,8 @@
 import { computed, onMounted, reactive, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { api, formatMoney } from '../api'
+import DiscountBadge from '../components/DiscountBadge.vue'
+import { hasDiscount } from '../discountBadge'
 import { categoryFiltersFromMenu, filterMenuByCategory } from '../menuFilters'
 import { btn, btnPill, btnPillActive, btnPrimary, card, muted, row } from '../twUi'
 
